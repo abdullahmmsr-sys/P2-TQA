@@ -6,8 +6,10 @@ This repository contains a complete exploratory data analysis (EDA) workflow for
 
 Two main components work together to provide a comprehensive analysis:
 
-1. **`EDA_Cardio.ipynb`** — Jupyter notebook with step-by-step EDA analysis
-2. **`streamlit_app.py`** — Interactive Streamlit dashboard for visualizations and modeling
+1. **github link:** - https://github.com/abdullahmmsr-sys/P2-TQA
+2. **streamlit app link:** - https://eda-cardio.streamlit.app/
+3. **`EDA_Cardio.ipynb`** — Jupyter notebook with step-by-step EDA analysis
+4. **`streamlit_app.py`** — Interactive Streamlit dashboard for visualizations and modeling
 
 ## Files Description
 
