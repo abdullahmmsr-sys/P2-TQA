@@ -1,6 +1,6 @@
 # Cardiovascular Disease EDA & Dashboard
 
-This repository contains a complete exploratory data analysis (EDA) workflow for cardiovascular disease risk prediction using a Kaggle dataset.
+This repository contains a complete exploratory data analysis (EDA) workflow for cardiovascular disease risk prediction using a Kaggle dataset. **Project week 2 at Tuwaiq academy**
 
 ## Project Overview
 
