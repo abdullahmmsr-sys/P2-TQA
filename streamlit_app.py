@@ -10,31 +10,33 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import classification_report, accuracy_score, confusion_matrix
 from imblearn.over_sampling import SMOTE
+import kagglehub
+import os
 
 st.title("Cardiovascular Disease EDA Dashboard")
 st.markdown("---")
 
 
 st.sidebar.header("Data")
-file = st.sidebar.file_uploader("Upload dataset CSV", type=["csv"]) 
-use_default = st.sidebar.checkbox("Use local dataset file (data/CVD_cleaned.csv)", value=True)
+file = st.sidebar.file_uploader("Upload dataset CSV (optional)", type=["csv"])
 
 @st.cache_data
-def load_data(file, use_default_path=True):
+def load_data(file=None):
     if file is not None:
         df = pd.read_csv(file)
         return df
-    elif use_default_path:
-        try:
-            df = pd.read_csv("data/CVD_cleaned.csv")
-            return df
-        except FileNotFoundError:
-            return None
     else:
-        return None
+        try:
+            path = kagglehub.dataset_download("alphiree/cardiovascular-diseases-risk-prediction-dataset")
+            df = pd.read_csv(os.path.join(path, "CVD_cleaned.csv"))
+            return df
+        except Exception as e:
+            st.error(f"Could not download dataset from Kaggle: {e}")
+            st.info("Please upload the CVD_cleaned.csv file manually.")
+            return None
 
 
-df = load_data(file, use_default)
+df = load_data(file)
 
 if df is None:
     st.error("""
